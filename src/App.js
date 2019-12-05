@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import logo from './logo.svg';
+import './App.css';
+// import { Button } from '@material-ui/core';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import About from './components/about'
+import Contact from './components/contact'
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Main</h1>
+        <Router>
+          <div>
+            <Switch>
+              {/* <Route path="/" exact component={App} /> */}
+              <Route path="/" exact component={About} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
