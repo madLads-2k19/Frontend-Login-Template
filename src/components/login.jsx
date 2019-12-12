@@ -33,9 +33,9 @@ class Login extends Component {
 			method: "POST",
 			body: data
 		})
-		.then(this.handleErrors)
-		.then(response => console.log("Signed In"))
-		.catch(error => console.log(error));
+			.then(this.handleErrors)
+			.then(response => console.log("Signed In"))
+			.catch(error => console.log(error));
 	}
 
 	handleSignUpSubmit(event) {
@@ -47,7 +47,10 @@ class Login extends Component {
 			// Possibly use a Dynamic way to Update and render it
 		}
 
-		if (data.get("registerPassword").length < 8 || data.get("registerName").length < 8) {
+		if (
+			data.get("registerPassword").length < 8 ||
+			data.get("registerName").length < 8
+		) {
 			// Raise Length error
 		}
 
@@ -55,9 +58,9 @@ class Login extends Component {
 			method: "POST",
 			body: data
 		})
-		.then(this.handleErrors)
-		.then(response => console.log("Signed Up"))
-		.catch(error => console.log(error));
+			.then(this.handleErrors)
+			.then(response => console.log("Signed Up"))
+			.catch(error => console.log(error));
 	}
 
 	render() {
@@ -85,7 +88,11 @@ class Login extends Component {
 							</div>
 							<span>or use your email for registration</span>
 							<input type="text" id="registerName" placeholder="Username" />
-							<input type="password" id="registerPassword" placeholder="Password" />
+							<input
+								type="password"
+								id="registerPassword"
+								placeholder="Password"
+							/>
 							<input
 								type="password"
 								id="confirmPassword"
@@ -118,10 +125,8 @@ class Login extends Component {
 					<div className="overlay-container">
 						<div className="overlay">
 							<div className="overlay-panel overlay-left">
-								<h1>Welcome Back!</h1>
-								<p>
-									To keep connected with us please login with your personal info
-								</p>
+								<h1>Already have an account?</h1>
+								<p>Hop in.</p>
 								<button
 									className="ghost"
 									onClick={this.handleClick}
@@ -131,8 +136,8 @@ class Login extends Component {
 								</button>
 							</div>
 							<div className="overlay-panel overlay-right">
-								<h1>Hello, Friend!</h1>
-								<p>Enter your personal details and start journey with us</p>
+								<h1>New to MusicBrain?</h1>
+								<p>Create a new account for the best experience.</p>
 								<button
 									className="ghost"
 									onClick={this.handleClick}
