@@ -1,16 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button";
-import Avatar from "@material-ui/core/Avatar";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import "./Login.css";
 
@@ -29,7 +17,7 @@ class Login extends Component {
   render() {
      return (
       <Container component="main" maxWidth="xs">
-        <div className="container" id="container">
+        <div className={this.state.isToggleOn?"container":"container right-panel-active"} id="container">
 	<div className="form-container sign-up-container">
 		<form action="#">
 			<h1>Create Account</h1>
@@ -65,12 +53,12 @@ class Login extends Component {
 			<div className="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<button className="ghost" id="signIn">Sign In</button>
+				<button className="ghost" onClick={this.handleClick} id="signIn">Sign In</button>
 			</div>
 			<div className="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<button className="ghost" id="signUp">Sign Up</button>
+				<button className="ghost" onClick={this.handleClick} id="signUp">Sign Up</button>
 			</div>
 		</div>
 	</div>
