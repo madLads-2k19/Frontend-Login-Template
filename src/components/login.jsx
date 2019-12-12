@@ -27,9 +27,10 @@ class Login extends Component {
 				<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
+			<input type="text" placeholder="Username" />
 			<input type="password" placeholder="Password" />
+            <input type="password" placeholder="Confirm Password"/>
+
 			<button>Sign Up</button>
 		</form>
 	</div>
@@ -42,36 +43,27 @@ class Login extends Component {
 				<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
+			<input type="text" placeholder="Username" />
 			<input type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<button>Log In</button>
 		</form>
 	</div>
 	<div className="overlay-container">
 		<div className="overlay">
 			<div className="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button className="ghost" onClick={this.handleClick} id="signIn">Sign In</button>
+				<h1>Already have an account?</h1>
+				<p>Hop In</p>
+				<button className="ghost" onClick={this.handleClick} id="signIn">Log In</button>
 			</div>
 			<div className="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
+				<h1>New to Music Brain?</h1>
+				<p>Create a new account for the best experience</p>
 				<button className="ghost" onClick={this.handleClick} id="signUp">Sign Up</button>
 			</div>
 		</div>
 	</div>
 </div>
-
-<footer>
-	<p>
-		Created with <i className="fa fa-heart"></i> by
-		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-		- Read how I created this and how you can join the challenge
-		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-	</p>
-</footer>
       </Container>
     );
   }
