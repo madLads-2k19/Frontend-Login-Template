@@ -94,7 +94,7 @@ class Login extends Component {
 								name="confirmPassword"
 								placeholder="Confirm Password"
 							/>
-							<button>Sign Up</button>
+							<button action="submit">Sign Up</button>
 						</form>
 					</div>
 					<div className="form-container sign-in-container">
