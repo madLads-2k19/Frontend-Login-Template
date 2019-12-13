@@ -5,7 +5,14 @@ import "./Login.css";
 class Login extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { isToggleOn: true };
+		this.state = {
+			isToggleOn: true,
+			username: "",
+			password: "",
+			registerName: "",
+			registerPassword: "",
+			conPassword: ""
+		};
 		this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
 		this.handleSignUpSubmit = this.handleSignUpSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
@@ -74,28 +81,17 @@ class Login extends Component {
 				>
 					<div className="form-container sign-up-container">
 						<form onSubmit={this.handleSignUpSubmit}>
-							<h1>Create Account</h1>
-							<div className="social-container">
-								<a href="#" className="social">
-									<i className="fab fa-facebook-f"></i>
-								</a>
-								<a href="#" className="social">
-									<i className="fab fa-google-plus-g"></i>
-								</a>
-								<a href="#" className="social">
-									<i className="fab fa-linkedin-in"></i>
-								</a>
-							</div>
-							<span>or use your email for registration</span>
-							<input type="text" id="registerName" placeholder="Username" />
+							<h1>Create Account</h1><br/>
+							<input type="text" name="registerName" placeholder="Username" />
+							<input type="email" name="registerEmail" placeholder="Username" />
 							<input
 								type="password"
-								id="registerPassword"
+								name="registerPassword"
 								placeholder="Password"
 							/>
 							<input
 								type="password"
-								id="confirmPassword"
+								name="confirmPassword"
 								placeholder="Confirm Password"
 							/>
 							<button>Sign Up</button>
@@ -103,21 +99,9 @@ class Login extends Component {
 					</div>
 					<div className="form-container sign-in-container">
 						<form onSubmit={this.handleSignInSubmit}>
-							<h1>Sign in</h1>
-							<div className="social-container">
-								<a href="#" className="social">
-									<i className="fab fa-facebook-f"></i>
-								</a>
-								<a href="#" className="social">
-									<i className="fab fa-google-plus-g"></i>
-								</a>
-								<a href="#" className="social">
-									<i className="fab fa-linkedin-in"></i>
-								</a>
-							</div>
-							<span>or use your account</span>
-							<input type="text" id="username" placeholder="Username" />
-							<input type="password" id="password" placeholder="Password" />
+							<h1>Sign in</h1><br/>
+							<input type="text" name="username" placeholder="Username" />
+							<input type="password" name="password" placeholder="Password" />
 							<a href="/forgotPassword.html">Forgot your password?</a>
 							<button action="submit">Sign In</button>
 						</form>
