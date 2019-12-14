@@ -7,11 +7,6 @@ class Login extends Component {
 		super(props);
 		this.state = {
 			isToggleOn: true,
-			username: "",
-			password: "",
-			registerName: "",
-			registerPassword: "",
-			conPassword: ""
 		};
 		this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
 		this.handleSignUpSubmit = this.handleSignUpSubmit.bind(this);
@@ -36,12 +31,18 @@ class Login extends Component {
 		event.preventDefault();
 		const data = new FormData(event.target);
 
-		fetch("/user/sign-in", {
+		fetch("/user/login", {
 			method: "POST",
-			body: data
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				"username": data.get("username"),
+				"password": data.get("password")
+			})
 		})
-			.then(this.handleErrors)
-			.then(response => console.log("Signed In"))
+			.then(response => response.json())
+			.then(responseJSON => console.log(responseJSON))
 			.catch(error => console.log(error));
 	}
 
@@ -49,9 +50,10 @@ class Login extends Component {
 		event.preventDefault();
 		const data = new FormData(event.target);
 
-		if (data.get("registerPassword") !== data.get("conPassword")) {
+		if (data.get("registerPassword") !== data.get("confirmPassword")) {
 			// Raise Password Mismatch
 			// Possibly use a Dynamic way to Update and render it
+			return
 		}
 
 		if (
@@ -59,58 +61,67 @@ class Login extends Component {
 			data.get("registerName").length < 8
 		) {
 			// Raise Length error
+			return
 		}
-
-		fetch("/user/sign-in", {
-			method: "POST",
-			body: data
+		fetch("/user/signup", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				"username": data.get("registerName"),
+				"password": data.get("registerPassword")
+			})
 		})
 			.then(this.handleErrors)
-			.then(response => console.log("Signed Up"))
+			.then(response => console.log())
 			.catch(error => console.log(error));
 	}
 
 	render() {
 		return (
 			<Container component="main" maxWidth="xs">
+				<div className="main-container">
 				<div
 					className={
 						this.state.isToggleOn ? "container" : "container right-panel-active"
 					}
 					id="container"
 				>
+				
 					<div className="form-container sign-up-container">
-						<form onSubmit={this.handleSignUpSubmit}>
-							<h1>Create Account</h1><br/>
-							<input type="text" name="registerName" placeholder="Username" />
-							<input type="email" name="registerEmail" placeholder="Username" />
+						<form className="signup-login" onSubmit={this.handleSignUpSubmit}>
+							<h1 className="login-h1">Create Account</h1><br/>
+							<input type="text" className="signup-login" name="registerName" placeholder="Username" />
 							<input
+							className="signup-login"
 								type="password"
 								name="registerPassword"
 								placeholder="Password"
 							/>
 							<input
+							className="signup-login"
 								type="password"
 								name="confirmPassword"
 								placeholder="Confirm Password"
 							/>
-							<button action="submit">Sign Up</button>
+							<button  action="submit">Sign Up</button>
 						</form>
 					</div>
 					<div className="form-container sign-in-container">
-						<form onSubmit={this.handleSignInSubmit}>
-							<h1>Sign in</h1><br/>
-							<input type="text" name="username" placeholder="Username" />
-							<input type="password" name="password" placeholder="Password" />
-							<a href="/forgotPassword.html">Forgot your password?</a>
-							<button action="submit">Sign In</button>
+						<form className="signup-login" onSubmit={this.handleSignInSubmit}>
+							<h1 className="login-h1">Sign in</h1><br/>
+							<input type="text" className="signup-login" name="username" placeholder="Username" />
+							<input type="password" className="signup-login" name="password" placeholder="Password" />
+							<a className="forgot-password" href="/forgotPassword.html">Forgot your password?</a>
+							<button className="form" action="submit">Sign In</button>
 						</form>
 					</div>
 					<div className="overlay-container">
 						<div className="overlay">
 							<div className="overlay-panel overlay-left">
-								<h1>Already have an account?</h1>
-								<p>Hop in.</p>
+								<h1 className="login-h1">Already have an account?</h1>
+								<p className="slide-content">Hop in.</p>
 								<button
 									className="ghost"
 									onClick={this.handleClick}
@@ -120,8 +131,8 @@ class Login extends Component {
 								</button>
 							</div>
 							<div className="overlay-panel overlay-right">
-								<h1>New to MusicBrain?</h1>
-								<p>Create a new account for the best experience.</p>
+								<h1 className="login-h1">New to MusicBrain?</h1>
+								<p className="slide-content">Create a new account for the best experience.</p>
 								<button
 									className="ghost"
 									onClick={this.handleClick}
@@ -132,6 +143,7 @@ class Login extends Component {
 							</div>
 						</div>
 					</div>
+				</div>
 				</div>
 			</Container>
 		);

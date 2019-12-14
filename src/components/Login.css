@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-	box-sizing: border-box;
-}
 
-body {
-	background: #f6f5f7;
+div.main-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -15,16 +11,13 @@ body {
 	margin: -20px 0 50px;
 }
 
-h1 {
+h1.login-h1 {
 	font-weight: bold;
+	box-sizing: border-box;
 	margin: 0;
 }
 
-h2 {
-	text-align: center;
-}
-
-p {
+p.slide-content {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -32,11 +25,8 @@ p {
 	margin: 20px 0 30px;
 }
 
-span {
-	font-size: 12px;
-}
 
-a {
+.forgot-password {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
@@ -44,6 +34,7 @@ a {
 }
 
 button {
+	box-sizing: border-box;
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FFFFFF;
@@ -82,7 +73,8 @@ button.ghost:hover{
 	color: #FF4B2B;
 }
 
-form {
+form.signup-login {
+	box-sizing: border-box;
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -93,9 +85,10 @@ form {
 	text-align: center;
 }
 
-input {
+input.signup-login {
 	background-color: #eee;
 	border: none;
+	box-sizing: border-box;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
@@ -108,7 +101,6 @@ input {
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
     overflow: hidden;
-    right: 180px;
 	min-width: 768px;
 	max-width: 100%;
 	min-height: 480px;
@@ -131,6 +123,7 @@ input {
 
 .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
+	box-sizing: border-box;
 }
 
 .sign-up-container {
@@ -199,6 +192,7 @@ input {
 }
 
 .overlay-panel {
+	box-sizing: border-box;
 	position: absolute;
 	display: flex;
 	align-items: center;
