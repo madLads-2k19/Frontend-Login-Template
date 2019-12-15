@@ -31,10 +31,10 @@ class Login extends Component {
 		event.preventDefault();
 		const data = new FormData(event.target);
 
-		fetch("/user/login", {
+		fetch("https://cors-anywhere.herokuapp.com/https://musicbrain-backend.herokuapp.com/user/login", {
 			method: "POST",
 			headers: {
-				'Content-Type': 'application/json'
+				'content-Type': 'application/json'
 			},
 			body: JSON.stringify({
 				"username": data.get("username"),
@@ -57,13 +57,13 @@ class Login extends Component {
 		}
 
 		if (
-			data.get("registerPassword").length < 8 ||
-			data.get("registerName").length < 8
+			data.get("registerPassword").length < 5 ||
+			data.get("registerName").length < 5
 		) {
 			// Raise Length error
 			return
 		}
-		fetch("/user/signup", {
+		fetch("https://cors-anywhere.herokuapp.com/https://musicbrain-backend.herokuapp.com/user/signup", {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -74,7 +74,8 @@ class Login extends Component {
 			})
 		})
 			.then(this.handleErrors)
-			.then(response => console.log())
+			.then(response => response.json())
+			.then(responseJSON => console.log(responseJSON))
 			.catch(error => console.log(error));
 	}
 
