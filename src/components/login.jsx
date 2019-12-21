@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
 import "./Login.css";
+import "./fontawesome-free-5.12.0-web/css/all.css";
 
 class Login extends Component {
 	constructor(props) {
@@ -93,7 +94,8 @@ class Login extends Component {
 					<div className="form-container sign-up-container">
 						<form className="signup-login" onSubmit={this.handleSignUpSubmit}>
 							<h1 className="login-h1">Create Account</h1><br/>
-							<input type="text" className="signup-login" name="registerName" placeholder="Username" />
+							<i class="fas fa-user"></i>
+							<input type="text" className="signup-login" name="registerName" placeholder="Username" ></input>
 							<input
 							className="signup-login"
 								type="password"
