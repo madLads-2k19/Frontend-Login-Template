@@ -223,3 +223,16 @@ input.signup-login {
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
+
+.userInput{
+	position: relative;
+	width: 100%;
+}
+
+.userInput i{ 
+	color: rgb(85,85,85);
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	font-size: 15px;
+  }

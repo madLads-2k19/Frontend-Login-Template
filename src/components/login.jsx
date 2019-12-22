@@ -94,7 +94,6 @@ class Login extends Component {
 					<div className="form-container sign-up-container">
 						<form className="signup-login" onSubmit={this.handleSignUpSubmit}>
 							<h1 className="login-h1">Create Account</h1><br/>
-							<i class="fas fa-user"></i>
 							<input type="text" className="signup-login" name="registerName" placeholder="Username" ></input>
 							<input
 							className="signup-login"
@@ -114,8 +113,14 @@ class Login extends Component {
 					<div className="form-container sign-in-container">
 						<form className="signup-login" onSubmit={this.handleSignInSubmit}>
 							<h1 className="login-h1">Sign in</h1><br/>
-							<input type="text" className="signup-login" name="username" placeholder="Username" />
-							<input type="password" className="signup-login" name="password" placeholder="Password" />
+							<div className="userInput">
+								<input type="text" className="signup-login" name="username" placeholder="Username"/>
+								<i class="fas fa-user"></i>
+							</div>
+							<div className="userInput">
+								<input type="password" className="signup-login" name="password" placeholder="Password" />
+								<i class="fas fa-lock"></i>
+							</div>
 							<a className="forgot-password" href="/forgotPassword.html">Forgot your password?</a>
 							<button className="form" action="submit">Sign In</button>
 						</form>
